@@ -1,14 +1,11 @@
 const { expect } = require("chai");
 
-describe("Greeter", function() {
-  it("Should return the new greeting once it's changed", async function() {
-    const Greeter = await ethers.getContractFactory("Greeter");
-    const greeter = await Greeter.deploy("Hello, world!");
-    
-    await greeter.deployed();
-    expect(await greeter.greet()).to.equal("Hello, world!");
+describe("SwapETH", function() {
+  it("Should set owner when deployed", async function() {
+    const [owner] = await ethers.getSigners();
+    const factory = await ethers.getContractFactory("SwapETH");
+    const contract = await factory.deploy();
 
-    await greeter.setGreeting("Hola, mundo!");
-    expect(await greeter.greet()).to.equal("Hola, mundo!");
+    expect(await contract.owner()).to.equal(owner.address);
   });
 });
