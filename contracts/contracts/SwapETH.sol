@@ -7,9 +7,9 @@ contract SwapETH {
     uint64 nonce;
   }
   enum Testnet{ ROPSTEN, RINKEBY, KOVAN, GOERLI }
-  event Received(uint256, address, uint256, Testnet);
+  event Received(uint64, address, uint256, Testnet);
 
-  uint64 nonce;
+  uint64 public nonce;
   address public owner;
   mapping(Testnet => mapping (uint64 => bool)) swapsCompleted;
 
