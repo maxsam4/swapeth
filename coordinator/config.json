@@ -1,36 +1,32 @@
 {
-    "networks": [
-        {
+    "networks": {
+        "ropsten": {
             "contractAddress": "0xdB2cE0E821c0C89eF1c2B4CF666952C722B9F2Cc",
-            "deploymentBlock": "4199871",
             "scanWindow": "50000",
             "confirmationBlocks": "5",
-            "gasPrice": "2",
-            "networkName": "ropsten"
+            "replayWindow": "20",
+            "gasPrice": "2"
         },
-        {
+        "rinkeby": {
             "contractAddress": "0xdB2cE0E821c0C89eF1c2B4CF666952C722B9F2Cc",
-            "deploymentBlock": "4199871",
             "scanWindow": "50000",
             "confirmationBlocks": "5",
-            "gasPrice": "2",
-            "networkName": "rinkeby"
+            "replayWindow": "50",
+            "gasPrice": "2"
         },
-        {
-            "contractAddress": "0xdB2cE0E821c0C89eF1c2B4CF666952C722B9F2Cc",
-            "deploymentBlock": "23239234",
+        "kovan": {
+            "contractAddress": "0xa96A639b2Bc3b17bAf6ca4F4A153C5B84Cd99C15",
             "scanWindow": "50000",
             "confirmationBlocks": "5",
-            "gasPrice": "2",
-            "networkName": "kovan"
+            "replayWindow": "100",
+            "gasPrice": "2"
         },
-        {
-            "contractAddress": "0xdB2cE0E821c0C89eF1c2B4CF666952C722B9F2Cc",
-            "deploymentBlock": "4199871",
+        "goerli": {
+            "contractAddress": "0xa96A639b2Bc3b17bAf6ca4F4A153C5B84Cd99C15",
             "scanWindow": "50000",
             "confirmationBlocks": "5",
-            "gasPrice": "2",
-            "networkName": "goerli"
+            "replayWindow": "50",
+            "gasPrice": "2"
         }
-    ]
+    }
 }

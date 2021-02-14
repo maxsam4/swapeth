@@ -1,0 +1,16 @@
+{
+    "networks": {
+        "ropsten": {
+            "lastProcessedBlock": 9660386
+        },
+        "rinkeby": {
+            "lastProcessedBlock": 8070783
+        },
+        "kovan": {
+            "lastProcessedBlock": 23465575
+        },
+        "goerli": {
+            "lastProcessedBlock": 4280782
+        }
+    }
+}

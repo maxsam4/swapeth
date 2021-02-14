@@ -27,13 +27,27 @@ contract SwapETH {
   }
 
   function transfer(address payable to, uint256 amount, Testnet from, uint64 fromNonce) external onlyOwner {
-    require(!swapsCompleted[from][fromNonce], "Duplicate");
-    swapsCompleted[from][fromNonce] = true;
-    to.transfer(amount);
+    _transfer(to, amount, from, fromNonce);
+  }
+
+  function batchTransfer(address payable[] memory to, uint256[] memory amount, Testnet[] memory from, uint64[] memory fromNonce) external onlyOwner {
+    require(to.length == amount.length && amount.length == from.length && from.length == fromNonce.length);
+    for (uint256 i = 0; i < to.length; i++) {
+      _transfer(to[i], amount[i], from[i], fromNonce[i]);
+    }
   }
 
   function passBaton(address newOwner) external onlyOwner {
     owner = newOwner;
+  }
+
+  function _transfer(address payable to, uint256 amount, Testnet from, uint64 fromNonce) internal {
+    if (!swapsCompleted[from][fromNonce]) {
+      swapsCompleted[from][fromNonce] = true;
+      (bool success,) = to.call{value: amount, gas: 3000}("");
+      // Shut the fuck up Solidity
+      success;
+    }
   }
 
   receive() external payable {}
